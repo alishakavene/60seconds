@@ -2,11 +2,16 @@
 <html>
 
 <head>
-    <title>60 seconds</title>
+    <title>{{ data.question }}</title>
 </head>
 
 <body>
-    <h1>One Minute Pitch</h1>
+    <h1>{{ data.question }}</h1>
+    <form action="/poll">
+        {% for e in data.fields %}
+        <input type="radio" name="field" value="{{ e }}"> {{ e }}<br> {% endfor %}
+        <input type="submit" value="Vote" />
+    </form>
 </body>
 
 </html>
