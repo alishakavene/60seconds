@@ -7,8 +7,6 @@ class Config:
     print (SQLALCHEMY_DATABASE_URI, 'STRING')
 
 
-
-
 class ProdConfig(Config):
    
     pass
