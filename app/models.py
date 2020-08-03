@@ -1,6 +1,12 @@
-from . import db 
+from . import db,login_manager
 from datetime import datetime
+from flask_login import UserMixin
 
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 #...
 
 class User(db.Model):
@@ -69,4 +75,3 @@ class Comment(db.Model):
     def get_comments(cls, pitch):
         comments = Comment.query.filter_by(pitch_id=pitch).all()
         return comments
-
